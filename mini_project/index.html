@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Pendaftaran Workshop</h1>
+    <p class="subjudul">Isi data dirimu, pilih sesi, lalu kirim.</p>
+
+    <form id="formWorkshop" novalidate>
+      <label for="wsNama">Nama (min. 3 karakter)</label>
+      <input id="wsNama" type="text" autocomplete="off">
+      <span class="error" id="errNama"></span>
+
+      <label for="wsEmail">Email</label>
+      <input id="wsEmail" type="email" autocomplete="off">
+      <span class="error" id="errEmail"></span>
+
+      <label for="wsSesi">Sesi workshop</label>
+      <select id="wsSesi">
+        <option value="">-- Pilih sesi --</option>
+        <option value="Pagi (09.00)">Pagi (09.00)</option>
+        <option value="Siang (13.00)">Siang (13.00)</option>
+        <option value="Sore (16.00)">Sore (16.00)</option>
+      </select>
+      <span class="error" id="errSesi"></span>
+      <p class="info" id="infoSesi"></p>
+
+      <label for="wsCatatan">Catatan (maks. 100 karakter)</label>
+      <textarea id="wsCatatan" maxlength="100" rows="3"></textarea>
+      <p class="hitung">Karakter: <span id="hitungCatatan">0</span>/100</p>
+
+      <div class="baris-tombol">
+        <button type="submit">Daftar</button>
+      </div>
+    </form>
+
+    <p id="pesanWorkshop" aria-live="polite"></p>
+
+    <div class="ringkasan" id="kartuSukses" hidden>
+      <strong>Pendaftaran berhasil</strong>
+      <p>Nama: <span id="kNama"></span></p>
+      <p>Email: <span id="kEmail"></span></p>
+      <p>Sesi: <span id="kSesi"></span></p>
+    </div>
+
+    <section class="peserta">
+      <h2>Peserta terdaftar (<span id="jumlahPeserta">0</span>)</h2>
+      <p id="kosongPeserta">Belum ada peserta.</p>
+      <ul id="daftarPeserta"></ul>
+    </section>
+  </main>
+</body>
+</html>
